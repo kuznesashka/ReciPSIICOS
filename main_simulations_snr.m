@@ -220,4 +220,5 @@ Z_total(5, :, :, :, :) = Zp_two;
 % Z(:,:,4:5,:,:) = Z_total2(:,:,3:4,:,:);
 % Z(:,:,6:9,:,:) = Z_total(:,:,2:5,:,:);
 % 
-% save Z_total_full Z
+save Z_total_full Z
+save picked_src picked_src
