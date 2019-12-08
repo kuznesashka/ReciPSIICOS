@@ -16,6 +16,8 @@ Simulations:
 	3.1 save_simulations_rank.m -- Generate simulations for different methods and different SNRs, the resulting activation maps saved at Z_total_rank.mat, and source locations in picked_src_rank.mat (available in GDrive)
 	3.2 plot_simulations_rank.mat -- calculate point spreading and bias for precomputed Z_total_rank and picked_src_rank and draw them on a graph
 
+4. Figure 11
+	4.2 plot_simulations_threesrc.m -- visualize simulations with three sources (input data on GDrive)
 Real data:
 
 1. MMN analysis:
