@@ -17,7 +17,7 @@ Simulations:
 	3.2 plot_simulations_rank.mat -- calculate point spreading and bias for precomputed Z_total_rank and picked_src_rank and draw them on a graph
 
 4. Figure 11
-	4.2 plot_simulations_threesrc.m -- visualize simulations with three sources (input data on GDrive)
+	4.1 plot_simulations_threesrc.m -- visualize simulations with three sources (input data on GDrive)
 Real data:
 
 1. MMN analysis:
