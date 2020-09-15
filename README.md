@@ -12,11 +12,14 @@ Simulations:
 	* 2.1 save_simulations_Gerror.m — Generate simualtions for different forward model inaccuracies, using matrices C_re_005, C_re_01, C_re_02 (GDrive), save the results into `Z_total_G.mat` (GDrive).
 	* 2.2 plot_metrics_simulations_Gerror.mat — calculate point spreading and bias for precomputed `Z_total_G.mat` and `picked_src.mat` and draw them on a graph.
 
-3. Figure 10.
+3. Figure 8.
+	* 3.1 plot_simulation_histogram.m — plot histograms for precomputed `Z_total_full.mat`.
+
+4. Figure 10.
 	* 3.1 save_simulations_rank.m — Generate simulations for different methods and different SNRs, the resulting activation maps saved at `Z_total_rank.mat`, and source locations in `picked_src_rank.mat` (available in GDrive).
 	* 3.2 plot_simulations_rank.mat — calculate point spreading and bias for precomputed `Z_total_rank.mat` and `picked_src_rank.mat` and draw them on a graph.
 
-4. Figure 11.
+5. Figure 11.
 	* 4.1 plot_simulations_threesrc.m — visualize simulations with three sources (input data on GDrive).
 
 Real data:
