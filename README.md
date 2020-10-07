@@ -1,6 +1,6 @@
 # ReciPSIICOS
 
-Data source: https://drive.google.com/drive/folders/1kZjO7CgZNYVGtrciPKmdTiAvkHW4pUsb?usp=sharing
+Data source: https://drive.google.com/drive/folders/1sOtgn66MiLxC1eer25z9Y1Vrzcc8Ga6F?usp=sharing
 
 Simulations:
 
@@ -16,8 +16,8 @@ Simulations:
 	* 3.1 plot_simulation_histogram.m — plot histograms for precomputed `Z_total_full.mat`.
 
 4. Figure 9.
-	* 3.1 save_simulations_rank.m — Generate simulations for different methods and different SNRs, the resulting activation maps saved at `Z_total_rank.mat`, and source locations in `picked_src_rank.mat` (available in GDrive).
-	* 3.2 plot_simulations_rank.mat — calculate point spreading and bias for precomputed `Z_total_rank.mat` and `picked_src_rank.mat` and draw them on a graph.
+	* 3.1 `save_simulations_rank.m` — Generate simulations with fixed SNR, then apply source reconstruction with PSIICOS and ReciPSIICOS techniques with different projection ranks. The resulting activation maps saved at `Z_total_rank.mat` and source locations at `picked_src_rank.mat` (uploaded in GoogleDrive folder).
+	* 3.2 `plot_simulations_rank.mat` — calculate point spreading and bias for precomputed `Z_total_rank.mat` and `picked_src_rank.mat` and plot them.
 
 5. Figures 10, 11, 12.
 	* 4.1 save_simulations_three_src_asynch.m — generate simulations with three active moderatly related sources.
