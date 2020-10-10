@@ -4,6 +4,8 @@
 
 **Simulations**:
 
+Run `main.m` script to perform the following steps:
+
 1. Figure 7.A.
 	* 1.1 `save_simulations_snr.m` — Generate simulations for different methods (MNE, LCMV beamformer, ReciPSIICOS, WReciPSIICOS) and different SNRs ([0, 0.5, 0.7, 1.5, 1.7, 2, 4, 5, 7]). The resulting activation maps saved at `Z_total_full.mat` and source locations in `picked_src.mat` (available in GDrive folder).
 	* 1.2 `plot_metrics_simulations_snr.mat` — calculate point spreading and bias for precomputed `Z_total_full.mat` and `picked_src.mat` and plot them. Save collected bias and point spreading values as `r_snr.mat` and `var_snr.mat`.
