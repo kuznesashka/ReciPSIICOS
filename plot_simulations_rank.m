@@ -1,5 +1,5 @@
-function [r, var] = plot_simulations_rank(G3, G3_red, chans, ...
-    Z_total, picked_src, rank, Nmc)
+function [r, var] = plot_simulations_rank(G3, G3_red, ...
+    Z_total, picked_src, rank)
 
 %--------------------------------------------------------------------------
 % Calculate point spreading and bias for precomputed `Z_total_rank.mat` and
@@ -9,11 +9,9 @@ function [r, var] = plot_simulations_rank(G3, G3_red, chans, ...
 % ----------
 % G3 : Forward operator for dense cortical model
 % G3_red : Forward operator for reduced cortical model
-% chans : channel locations
 % Z_total : (method, synch, length(rank), Nmc, Nsrc), where methods: 
 %       [ReciPSIICOS, WReciPSIICOS, LCMV, MNE]
 % picked_src : (Nmc, 2) pairs of simulated sources
-% Nmc : number of Monte Carlo simulations
 % rank : list of projection rank values
 %
 % Returns
@@ -24,8 +22,8 @@ function [r, var] = plot_simulations_rank(G3, G3_red, chans, ...
 
     R = G3.GridLoc; % source location, dense matrix
     R_red = G3_red.GridLoc; % source location reduced matrix
-    % use gradiometers only
-    ChUsed = find(strcmp({chans.Channel.Type}, 'MEG GRAD')); 
+    
+    Nmc = size(picked_src, 1);
 
     % 2. SIMULATIONS 
     % Z_total = (method, synch, length(rank), Nmc, Nsrc)
