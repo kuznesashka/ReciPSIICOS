@@ -41,7 +41,7 @@ function [Z_total_G, picked_src] = save_simulations_Gerror(G3, G3_red, chans, ..
             Noise_forward_ratio(fw_error) * noise_forw * ...
             norm(G3_red.Gain(ChUsed, :),'fro') / norm(noise_forw, 'fro');
 
-        [~, G2d0, ~] = G3toG2(G3, ChUsed);
+        [~, G2d0, Nsites] = G3toG2(G3, ChUsed);
         [G2d_red, G2d0_red, Nsites_red] = G3toG2(G3_red, ChUsed);
 
         % 2. REDUCING SENSOR SPACE for sparse matrix
@@ -64,7 +64,6 @@ function [Z_total_G, picked_src] = save_simulations_Gerror(G3, G3_red, chans, ..
         Swp(3, 2) = 1;
         Swp(1, 1) = 1; 
         Swp(4, 4) = 1;
-        NSites = fix(size(G2d0U_red, 2) / 2);
 
         errname = string(Noise_forward_ratio(fw_error));
         errname = erase(errname, '.');
@@ -72,12 +71,12 @@ function [Z_total_G, picked_src] = save_simulations_Gerror(G3, G3_red, chans, ..
         gname = strcat('C_re_', errname, '.mat');
         if (~load_corr)
             C_re = zeros(RankG^2, RankG^2);
-            parfor i = 1:NSites
+            parfor i = 1:Nsites
                  range_i = i * 2 - 1:i * 2;
                  ai = G2d0U_red(:, range_i);
                  rng = 1:4;
-                 X = zeros(RankG^2, 4 * (NSites - i), 'single');
-                 for j = i + 1:NSites
+                 X = zeros(RankG^2, 4 * (Nsites - i), 'single');
+                 for j = i + 1:Nsites
                     range_j = j * 2 - 1:j * 2;
                     aj = G2d0U_red(:, range_j);
                     X(:, rng) = kron(ai, aj) + kron(aj, ai) * Swp;

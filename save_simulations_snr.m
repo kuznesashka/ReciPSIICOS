@@ -30,7 +30,7 @@ function [Z_total, picked_src] = save_simulations_snr(G3, G3_red, chans, ...
     ChUsed = find(strcmp({chans.Channel.Type}, 'MEG GRAD'));
     Nch = length(ChUsed);
 
-    [~, G2d0, ~] = G3toG2(G3, ChUsed);
+    [~, G2d0, Nsites] = G3toG2(G3, ChUsed);
     [G2d_red, G2d0_red, Nsites_red] = G3toG2(G3_red, ChUsed);
 
     % 2. REDUCING SENSOR SPACE for sparse matrix
@@ -53,16 +53,15 @@ function [Z_total, picked_src] = save_simulations_snr(G3, G3_red, chans, ...
     Swp(1, 1) = 1; 
     Swp(4, 4) = 1;
     RankG = size(G2d0U_red, 1);
-    NSites = fix(size(G2d0U_red, 2) / 2);
 
    if (~load_corr)
         C_re = zeros(RankG^2, RankG^2);
-        parfor i = 1:NSites
+        parfor i = 1:Nsites
              range_i = i * 2 - 1:i * 2;
              ai = G2d0U_red(:, range_i);
              rng = 1:4;
-             X = zeros(RankG^2, 4 * (NSites - i), 'single');
-             for j = i + 1:NSites
+             X = zeros(RankG^2, 4 * (Nsites - i), 'single');
+             for j = i + 1:Nsites
                 range_j = j * 2 - 1:j * 2;
                 aj = G2d0U_red(:, range_j);
                 X(:, rng) = kron(ai, aj) + kron(aj, ai) * Swp;
@@ -134,7 +133,7 @@ function [Z_total, picked_src] = save_simulations_snr(G3, G3_red, chans, ...
 
             for i = 1:Nsites % find the symmetrical source
                 dd_sym(i) = norm([R(picked_src(mc, 1), 1), ...
-                    - R(picked_src(mc, 1), 2), R(picked_src(mc, 1), 3)] - R(i, :));
+                    -R(picked_src(mc, 1), 2), R(picked_src(mc, 1), 3)] - R(i, :));
             end
             [~, picked_src(mc, 2)] = min(dd_sym);
         end

@@ -27,7 +27,7 @@ function [Z_total, picked_src] = save_simulations_rank(G3, G3_red, chans, ...
     % use gradiometers only
     ChUsed = find(strcmp({chans.Channel.Type}, 'MEG GRAD')); 
     Nch = length(ChUsed);
-    [~, G2d0, ~] = G3toG2(G3, ChUsed);
+    [~, G2d0, Nsites] = G3toG2(G3, ChUsed);
     [G2d_red, G2d0_red, Nsites_red] = G3toG2(G3_red, ChUsed);
     
     R = G3.GridLoc; % source location, dense matrix
@@ -52,16 +52,15 @@ function [Z_total, picked_src] = save_simulations_rank(G3, G3_red, chans, ...
     Swp(1, 1) = 1; 
     Swp(4, 4) = 1;
     RankG = size(G2d0U_red, 1);
-    NSites = fix(size(G2d0U_red, 2) / 2);
 
     if (~load_corr)
         C_re = zeros(RankG^2, RankG^2);
-        parfor i = 1:NSites
+        parfor i = 1:Nsites
              range_i = i * 2 - 1:i * 2;
              ai = G2d0U_red(:, range_i);
              rng = 1:4;
-             X = zeros(RankG^2, 4 * (NSites - i), 'single');
-             for j = i + 1:NSites
+             X = zeros(RankG^2, 4 * (Nsites - i), 'single');
+             for j = i + 1:Nsites
                 range_j = j * 2 - 1:j * 2;
                 aj = G2d0U_red(:, range_j);
                 X(:, rng) = kron(ai, aj) + kron(aj, ai) * Swp;
