@@ -12,14 +12,14 @@ Run `main.m` script to perform the following steps:
 
 2. Figure 7.B.
 	* 2.1 `save_simulations_Gerror.m` — Generate simualtions for different forward model inaccuracies, using matrices `C_re_005`, `C_re_01`, `C_re_02` (GDrive), save the results into `Z_total_G.mat` (GDrive).
-	* 2.2 `plot_metrics_simulations_Gerror.mat` — calculate point spreading and bias for precomputed `Z_total_G.mat` and `picked_src_G.mat` and plot them.
+	* 2.2 `plot_metrics_simulations_Gerror.m` — calculate point spreading and bias for precomputed `Z_total_G.mat` and `picked_src_G.mat` and plot them.
 
 3. Figure 8.
 	* 3.1 `plot_simulation_histogram.m` — plot histograms for precomputed `r_snr.mat` and `var_snr.mat`.
 
 4. Figure 9.
 	* 4.1 `save_simulations_rank.m` — Generate simulations with fixed SNR, then apply source reconstruction with PSIICOS and ReciPSIICOS techniques with different projection ranks. The resulting activation maps saved at `Z_total_rank.mat` and source locations at `picked_src_rank.mat` (uploaded in GoogleDrive folder).
-	* 4.2 `plot_simulations_rank.mat` — calculate point spreading and bias for precomputed `Z_total_rank.mat` and `picked_src_rank.mat` and plot them.
+	* 4.2 `plot_simulations_rank.m` — calculate point spreading and bias for precomputed `Z_total_rank.mat` and `picked_src_rank.mat` and plot them.
 
 5. Figures 10, 11, 12.
 	* 5.1 `save_simulations_three_src_asynch.m` — generate simulations with three active moderatly related sources. Calculate bias, pointspreading variance, detection rate.
