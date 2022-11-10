@@ -123,14 +123,3 @@ load var_three_asynch
 load detect_three_asynch
 
 plot_simulations_threesrc(r, var, detect)
-
-
-
-
-
-
-
-
-
-
-
