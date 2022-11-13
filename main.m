@@ -29,7 +29,7 @@ snr = [0, 0.5, 0.7, 1.5, 1.7, 2, 4, 5, 7];
 Nmc = 500;
 
 [r, var] = plot_metrics_simulations_snr(G3, G3_red, ...
-    Z_total, picked_src, snr, Nmc);
+    Z_total, picked_src, snr);
 save r_snr r
 save var_snr var
 
