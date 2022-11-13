@@ -240,7 +240,3 @@ function [r, var] = plot_metrics_simulations_Gerror(G3, G3_red, ...
     ax.Box = 'on';
     ax.LineWidth = 2;
 end
-
-
-
-
