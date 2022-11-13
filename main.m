@@ -85,7 +85,7 @@ end
 
 load Z_total_rank
 load picked_src_rank
-plot_simulations_rank(G3, G3_red, Z_total, picked_src, rank, Nmc);
+plot_simulations_rank(G3, G3_red, Z_total, picked_src, rank);
 
 
 % 5.1 Generate simulations for three asynchronous sources, calculate bias,
