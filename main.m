@@ -1,4 +1,3 @@
-
 % 1. Upload forward model for dense and sparse matrices
 G3 = load('R0015_G.mat'); % forward model matrix 20002 sources
 G3_red = load('RR015_G_5k.mat'); % reduced forward model matrix 5001 sources
