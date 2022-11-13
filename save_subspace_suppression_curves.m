@@ -188,6 +188,3 @@ function fname_results = save_subspace_suppression_curves(G3_red, chans, Sensors
         h5 = plot(wrp_rat);
     end
 end
- 
-   
-  
